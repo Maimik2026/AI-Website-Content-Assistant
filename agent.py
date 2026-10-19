@@ -6,6 +6,16 @@ def review_website_content(text):
         return "Please enter some website text to review."
 
     suggestions = []
+    long_sentences = [
+        sentence
+        for sentence in text.replace("!", ".").replace("?", ".").split(".")
+        if len(sentence.split()) > 20
+    ]
+
+    if long_sentences:
+        suggestions.append(
+            "Some sentences are too long. Consider splitting them into shorter sentences."
+        )
 
     if len(text.split()) < 20:
         suggestions.append(
