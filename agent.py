@@ -36,6 +36,16 @@ if __name__ == "__main__":
     print("AI Website Content Assistant")
     print("Enter website text in English.")
     website_text = input("\nWebsite text: ")
+    words = website_text.split()
+    characters = len(website_text)
+    sentences = sum(
+        1 for char in website_text if char in ".!?"
+    )
+
+    print("\nText statistics:")
+    print(f"Words: {len(words)}")
+    print(f"Characters: {characters}")
+    print(f"Sentences: {sentences}")
 
     print("\nSuggestions:")
     print(review_website_content(website_text))
